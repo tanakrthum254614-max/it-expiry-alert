@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IT Expiry Alert</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .days { font-weight: 600; white-space: nowrap; }
+    .days.ok { color: var(--ok); } .days.warn { color: var(--warn); } .days.danger { color: var(--danger); }
+    .days.late { color: var(--late); }
+    td .sub { font-size: 12px; color: var(--muted); }
+    td .err { font-size: 12px; color: var(--danger); }
+    td.actions { white-space: nowrap; text-align: right; }
+    .channels { font-size: 13px; color: var(--muted); }
+    .preview { white-space: pre-wrap; background: var(--surface-2); border-radius: 8px; padding: 12px; font-size: 13px; margin: 0 0 12px; max-height: 50vh; overflow: auto; }
+    @media (max-width: 720px) {
+      thead { display: none; }
+      tr { display: block; border-bottom: 1px solid var(--border); padding: 8px 0; }
+      td { display: block; border: 0; padding: 4px 12px; }
+      td.actions { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <h1>⏰ IT Expiry Alert <small>SSL · โดเมน · License · สัญญา MA</small></h1>
+      <span class="channels" id="channels"></span>
+      <button id="btnCheck">🔄 ตรวจ SSL/โดเมนตอนนี้</button>
+      <button id="btnNotify">📣 ส่งแจ้งเตือนตอนนี้</button>
+      <button class="primary" id="btnAdd">＋ เพิ่มรายการ</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="stats" id="stats"></div>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="ค้นหาชื่อ, โดเมน, ผู้ดูแล…">
+      <select id="fType">
+        <option value="">ทุกประเภท</option>
+        <option value="ssl">SSL</option>
+        <option value="domain">โดเมน</option>
+        <option value="license">License</option>
+        <option value="contract">สัญญา/MA</option>
+        <option value="other">อื่น ๆ</option>
+      </select>
+    </div>
+    <div class="card table-scroll">
+      <table>
+        <thead><tr><th>รายการ</th><th>ประเภท</th><th>หมดอายุ</th><th>เหลือ</th><th>ผู้ดูแล</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <dialog id="dlg">
+    <form method="dialog" id="form">
+      <h2 id="dlgTitle">เพิ่มรายการ</h2>
+      <input type="hidden" name="id">
+      <label>ชื่อรายการ<input name="name" required placeholder="เช่น เว็บบริษัท, Microsoft 365, MA Firewall"></label>
+      <div class="grid2">
+        <label>ประเภท
+          <select name="type">
+            <option value="ssl">SSL Certificate (ตรวจอัตโนมัติ)</option>
+            <option value="domain">โดเมน (ตรวจอัตโนมัติ)</option>
+            <option value="license">License ซอฟต์แวร์</option>
+            <option value="contract">สัญญา / MA</option>
+            <option value="other">อื่น ๆ</option>
+          </select>
+        </label>
+        <label>วันหมดอายุ<input type="date" name="expiresAt"></label>
+      </div>
+      <label id="targetWrap">โดเมน / โฮสต์<input name="target" placeholder="เช่น example.com หรือ mail.example.com:8443">
+        <span class="hint">เว้นวันหมดอายุว่างไว้ ระบบจะตรวจให้เอง</span></label>
+      <label>ผู้ดูแล<input name="owner" placeholder="ชื่อคนหรือทีมที่ต้องต่ออายุ"></label>
+      <label>หมายเหตุ<textarea name="note" placeholder="เช่น ต่อกับเจ้าไหน, เลขสัญญา, ราคา"></textarea></label>
+      <div class="actions">
+        <button value="cancel" formnovalidate>ยกเลิก</button>
+        <button class="primary" value="save">บันทึก</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dlgNotify">
+    <form method="dialog">
+      <h2>ผลการส่งแจ้งเตือน</h2>
+      <div id="notifyResult"></div>
+      <div class="actions"><button class="primary">ปิด</button></div>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "it-ops-hub",
+  "private": true,
+  "type": "module",
+  "description": "IT Ops Hub: แจ้งเตือนของใกล้หมดอายุ (SSL, โดเมน, license, สัญญา MA) + Runbook ให้ user แก้ปัญหาเองก่อนเปิด ticket",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env dev.js"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.35.0"
+  }
+}
