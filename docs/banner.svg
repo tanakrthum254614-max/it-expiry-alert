@@ -9,9 +9,10 @@
   <rect width="1280" height="320" rx="24" fill="url(#grid)"/>
   <rect width="1280" height="320" rx="24" fill="url(#glow)"/>
   <rect x="1.5" y="1.5" width="1277" height="317" rx="23" fill="none" stroke="#d4af5f" stroke-opacity=".28"/>
-  <text x="640" y="92" text-anchor="middle" font-size="54">⏰</text>
+  <g transform="translate(640 78)"><polygon points="0,-34 29.4,-17 29.4,17 0,34 -29.4,17 -29.4,-17" fill="none" stroke="url(#gold)" stroke-width="2.5"/>
+    <text x="0" y="9" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25" font-weight="700" letter-spacing="1" fill="url(#gold)">IE</text></g>
   <text x="640" y="172" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700" letter-spacing="8" fill="url(#gold)">IT EXPIRY ALERT</text>
   <rect x="440" y="192" width="400" height="1.5" fill="url(#rule)"/>
-  <text x="640" y="230" text-anchor="middle" font-family="'Noto Sans Thai', 'Leelawadee UI', Tahoma, sans-serif" font-size="24" fill="#f4ecda">เตือนก่อน SSL · โดเมน · License · สัญญา MA หมดอายุ</text>
-  <text x="640" y="268" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="4" fill="#d4af5f">AUTO SSL &amp; DOMAIN CHECKS · DAILY ALERTS · LINE · SLACK · TELEGRAM</text>
+  <text x="640" y="230" text-anchor="middle" font-family="'Noto Sans Thai', 'Leelawadee UI', Tahoma, sans-serif" font-size="24" fill="#f4ecda">ระบบแจ้งเตือนก่อน SSL โดเมน ลิขสิทธิ์ และสัญญาหมดอายุ</text>
+  <text x="640" y="268" text-anchor="middle" font-family="'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" letter-spacing="4" fill="#d4af5f">SSL &amp; DOMAIN MONITORING · LICENSE &amp; CONTRACT TRACKING · ALERTS</text>
 </svg>
